@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  role_name: ansible-portus
+  author: Jacopo Secchiero
+  description: Playbook for portus.
+  company: Enter srl
+  license: MIT
+  min_ansible_version: 2.6.2
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+  galaxy_tags:
+    - molecule
+dependencies:
+  - {role: geerlingguy.docker, version: 2.5.2, docker_install_compose: True}
+  # List your role dependencies here, one per line.

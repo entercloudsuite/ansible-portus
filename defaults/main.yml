@@ -1,0 +1,9 @@
+---
+# defaults vars
+
+portus_git_dir: /usr/src/letsencrypt-portus
+portus_git_version: 1.0
+portus_cleanup: false # useful to prepare a packer image
+# portus_fqdn: portus.example.com
+# registry_fqdn: registry.example.com
+# letsencrypt_email: sysadmins@test.com

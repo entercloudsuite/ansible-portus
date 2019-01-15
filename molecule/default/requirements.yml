@@ -1,0 +1,7 @@
+---
+- src: geerlingguy.docker
+  version: 2.5.2
+- src: entercloudsuite.consul
+  version: 1.0.1
+- src: entercloudsuite.prometheus-exporter
+  version: 1.0.4

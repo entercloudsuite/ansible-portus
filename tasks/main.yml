@@ -1,0 +1,44 @@
+---
+# tasks
+
+- name: download repository
+  git:
+    repo: https://github.com/jsecchiero/letsencrypt-portus
+    dest: "{{ portus_git_dir }}"
+    refspec: "{{ portus_git_version }}"
+
+- name: generate env file
+  shell: |
+    envsubst < .env.tmpl > .env
+  args:
+    chdir: "{{ portus_git_dir }}"
+    executable: /bin/bash
+    creates: .env
+  environment:
+    PORTUS_FQDN: "{{ portus_fqdn }}"
+    REGISTRY_FQDN: "{{ registry_fqdn }}"
+    LETSENCRYPT_EMAIL: "{{ letsencrypt_email }}"
+    SECRET_KEY_BASE: "{{ lookup('password', '/dev/null length=130 chars=ascii_letters,digits') }}"
+    PORTUS_PASSWORD: "{{ lookup('password', '/dev/null length=32 chars=ascii_letters,digits') }}"
+    DATABASE_PASSWORD: "{{ lookup('password', '/dev/null length=32 chars=ascii_letters,digits') }}"
+
+- name: install portus and registry
+  shell: |
+    docker-compose up -d
+  args:
+    chdir: "{{ portus_git_dir }}"
+    executable: /bin/bash
+
+- name: cleanup .env file
+  file:
+    path: "{{ portus_git_dir }}/.env"
+    state: absent
+  when: portus_cleanup
+
+- name: cleanup containers
+  shell: |
+    docker-compose down
+  args:
+    chdir: "{{ portus_git_dir }}"
+    executable: /bin/bash
+  when: portus_cleanup
