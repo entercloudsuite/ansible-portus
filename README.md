@@ -20,7 +20,7 @@ Run with default vars:
 
     - hosts: all
       roles:
-        - role: ansible-portus
+        - role: entercloudsuite.portus
           portus_fqdn: portus.example.com
           registry_fqdn: registry.example.com
           letsencrypt_email: sysadmins@test.com
