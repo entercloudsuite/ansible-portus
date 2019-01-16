@@ -25,6 +25,8 @@ Run with default vars:
           registry_fqdn: registry.example.com
           letsencrypt_email: sysadmins@test.com
 
+for setting up portus follow this [guide](https://github.com/jsecchiero/letsencrypt-portus/blob/master/README.md)
+
 ## Testing
 
 Tests are performed using [Molecule](http://molecule.readthedocs.org/en/latest/).
