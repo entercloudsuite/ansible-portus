@@ -22,6 +22,7 @@
         - gzip
         - git
         - gettext-base
+        - thin-provisioning-tools
   roles:
     - role: ansible-portus
       portus_fqdn: portus.example.com
