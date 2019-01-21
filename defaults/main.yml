@@ -1,6 +1,7 @@
 ---
 # defaults vars
 
+#portus_password: myportuspassword
 portus_git_dir: /usr/src/letsencrypt-portus
 portus_git_version: 1.0
 portus_cleanup: false # useful to prepare a packer image

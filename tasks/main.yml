@@ -19,7 +19,7 @@
     REGISTRY_FQDN: "{{ registry_fqdn }}"
     LETSENCRYPT_EMAIL: "{{ letsencrypt_email }}"
     SECRET_KEY_BASE: "{{ lookup('password', '/dev/null length=130 chars=ascii_letters,digits') }}"
-    PORTUS_PASSWORD: "{{ lookup('password', '/dev/null length=32 chars=ascii_letters,digits') }}"
+    PORTUS_PASSWORD: "{{ portus_password }}"
     DATABASE_PASSWORD: "{{ lookup('password', '/dev/null length=32 chars=ascii_letters,digits') }}"
 
 - name: install portus and registry

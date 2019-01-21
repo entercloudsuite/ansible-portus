@@ -21,6 +21,7 @@ Run with default vars:
     - hosts: all
       roles:
         - role: entercloudsuite.portus
+          portus_password: myportuspassword
           portus_fqdn: portus.example.com
           registry_fqdn: registry.example.com
           letsencrypt_email: sysadmins@test.com
