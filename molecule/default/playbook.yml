@@ -116,3 +116,12 @@
       args:
         chdir: "{{ script_path }}"
         executable: /bin/bash
+    - name: cleanup image
+      shell: |
+        cloud-init clean -l -s
+        rm -rf /var/lib/cloud
+        rm -rf /run/cloud-init
+        rm -rf /home/ubuntu/.ssh/authorized_keys
+        rm -rf /root/.ssh/authorized_keys
+      args:
+        removes: /var/lib/cloud
